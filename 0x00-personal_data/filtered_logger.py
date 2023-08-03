@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import re
+import logging
 
 
 def filter_datum(fields: str, redaction: str,
