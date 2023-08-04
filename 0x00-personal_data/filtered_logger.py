@@ -3,6 +3,7 @@
 import re
 import logging
 from typing import List
+import sys
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -35,7 +36,7 @@ class RedactingFormatter(logging.Formatter):
         return super().format(record)
 
 
-def get_logger():
+def get_logger() -> logging.Logger:
     """Returns a logging.Logger object with desired config."""
     logger = logging.getLogger('user_data')
     logger.setLevel(logging.INFO)
