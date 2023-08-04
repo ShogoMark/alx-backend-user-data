@@ -33,6 +33,7 @@ class RedactingFormatter(logging.Formatter):
                                       record.msg, self.SEPARATOR)
         return super().format(record)
 
+
 def get_logger():
     """Returns a logging.Logger object with desired config."""
     logger = logging.getLogger('user_data')
