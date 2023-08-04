@@ -46,6 +46,7 @@ def get_data_from_csv(file_path):
             data.append(row)
     return data
 
+
 data_from_csv = get_data_from_csv('user_data.csv')
 PII_FIELDS = ('name', 'email', 'phone', 'address', 'credit_card')
 
