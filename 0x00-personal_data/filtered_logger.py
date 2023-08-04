@@ -4,7 +4,7 @@ import re
 import logging
 from typing import List
 import sys
-import user_data.csv
+import user_data
 
 
 def filter_datum(fields: List[str], redaction: str,
