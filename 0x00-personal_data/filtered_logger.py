@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""A filtering module using regexing"""
 import re
 import logging
 from typing import List
