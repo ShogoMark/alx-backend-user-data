@@ -4,6 +4,7 @@ import re
 import logging
 from typing import List
 import sys
+import csv
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -36,6 +37,16 @@ class RedactingFormatter(logging.Formatter):
         return super().format(record)
 
 
+def get_data_from_csv(file_path):
+    """Read data from CSV file and return a list of dictionaries."""
+    data = []
+    with open(file_path, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            data.append(row)
+    return data
+
+data_from_csv = get_data_from_csv('user_data.csv')
 PII_FIELDS = ('name', 'email', 'phone', 'address', 'credit_card')
 
 
@@ -47,7 +58,6 @@ def get_logger() -> logging.Logger:
     stream_handler = logging.StreamHandler(sys.stdout)
 
     formatter = RedactingFormatter(PII_FIELDS)
-
     stream_handler.setFormatter(formatter)
 
     logger.addHandler(stream_handler)
