@@ -4,7 +4,7 @@ import logging
 from typing import List
 
 
-def filter_datum(fields: typing.List[str], redaction: str,
+def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
     """obfuscate specified field with redaction string as separator"""
     regex_pattern = '|'.join(r'(?<=\b{}\=)[^{}]+'.format(re.escape(field),
@@ -21,7 +21,7 @@ class RedactingFormatter(logging.Formatter):
     FORMAT = "[HOLBERTON] %(name)s %(levelname)s %(asctime)-15s: %(message)s"
     SEPARATOR = ";"
 
-    def __init__(self, fields: typing.List[str]):
+    def __init__(self, fields: List[str]):
         """initialize the RedactingFormatter class"""
         super(RedactingFormatter, self).__init__(self.FORMAT)
         self.fields = fields
