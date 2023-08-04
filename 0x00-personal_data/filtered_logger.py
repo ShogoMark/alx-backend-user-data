@@ -4,6 +4,7 @@ import re
 import logging
 from typing import List
 import sys
+import user_data.csv
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -47,6 +48,7 @@ def get_logger() -> logging.Logger:
     stream_handler = logging.StreamHandler(sys.stdout)
 
     formatter = RedactingFormatter(PII_FIELDS)
+
     stream_handler.setFormatter(formatter)
 
     logger.addHandler(stream_handler)
