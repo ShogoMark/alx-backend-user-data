@@ -41,7 +41,7 @@ class DB:
     def find_user_by(self, **kwargs) -> User:
         """Retrieves a user based on a set of filters"""
         users = self._session.query(User)
-        for key, value in kwargs..items():
+        for key, value in kwargs.items():
             if key not in User.__dict__:
                 raise InvalidRequestError
             for user in users:
