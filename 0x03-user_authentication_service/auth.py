@@ -26,8 +26,6 @@ class Auth:
                                      hashed_password=hashed_password)
         return new_user
 
-
-
     def _hash_password(self, password: str) -> str:
         """function returns salted hash of input password"""
         salt = bcrypt.gensalt()
