@@ -3,10 +3,11 @@
 
 import bcrypt
 
+
 def _hash_password(password: str) -> str:
-	"""function returns salted hash of input password"""
-	salt = bcrypt.gensalt()
+    """function returns salted hash of input password"""
+    salt = bcrypt.gensalt()
 
-	salted_hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    salted_hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-	return salted_hashed_password
+    return salted_hashed_password
