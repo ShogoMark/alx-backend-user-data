@@ -14,6 +14,7 @@ def greet():
     message = {"message": "Bienvenue"}
     return jsonify(message)
 
+
 @app.route("/users", methods=["POST"])
 def users():
     try:
