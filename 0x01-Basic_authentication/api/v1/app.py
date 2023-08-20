@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
-"""
+"""Route module for the API"""
 
 from os import getenv
 from api.v1.views import app_views
@@ -41,7 +39,6 @@ def before_request():
                 abort(403)
 
 
-
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler"""
@@ -58,7 +55,6 @@ def unauthorized(error) -> str:
 def forbidden(error) -> str:
     """forbidden error handler"""
     return jsonify({"error": "Forbidden"}), 403
-
 
 
 if __name__ == "__main__":
